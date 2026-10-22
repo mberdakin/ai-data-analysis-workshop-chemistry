@@ -8,16 +8,21 @@ con ellas en la guía:
   solucion        se reemplaza por un espacio para anotar el prompt y una celda vacía
   interpretacion  se reemplaza por un espacio "Tu interpretación"
 
-Las celdas sin etiqueta pasan igual. Uso:
+Las celdas sin etiqueta pasan igual, salvo los tiempos estimados de los títulos
+(por ejemplo "(25 min)"), que son para el docente y se quitan en la guía. Uso:
 
   python herramientas/crear_guia.py modulo-7/resuelto.ipynb modulo-7/guia.ipynb
 """
+import re
 import sys
 
 import nbformat
 
 TEXTO_RESUELTO = "**Versión resuelta para docentes.**"
 TEXTO_GUIA = "**Guía para estudiantes.**"
+
+# Tiempo estimado al final de un título, por ejemplo " (25 min)"
+PATRON_TIEMPO = re.compile(r" \(\d+ min\)$", re.MULTILINE)
 
 
 def etiquetas(celda):
@@ -57,6 +62,8 @@ def crear_guia(ruta_resuelto, ruta_guia):
         if copia.cell_type == "code":
             copia.outputs = []
             copia.execution_count = None
+        else:
+            copia.source = PATRON_TIEMPO.sub("", copia.source)
         celdas_guia.append(copia)
 
     # La portada del resuelto dice que es la versión docente; en la guía se cambia

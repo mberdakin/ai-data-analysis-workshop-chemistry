@@ -1,0 +1,17 @@
+# Versiones con las que se ejecutaron y verificaron los notebooks (Python 3.12).
+# En Colab no hace falta instalar nada: todas vienen preinstaladas (las versiones pueden diferir).
+
+# Análisis
+numpy==2.5.4
+pandas==3.0.6
+scipy==1.18.1
+scikit-learn==1.9.1
+matplotlib==3.11.2
+seaborn==0.13.2
+pillow==13.0.0
+
+# Ejecutar los notebooks y generar la guía (herramientas/)
+nbformat==5.11.1
+nbconvert==7.17.2
+nbclient==0.11.0
+ipykernel==7.4.0
