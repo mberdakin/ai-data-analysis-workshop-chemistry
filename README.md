@@ -55,4 +55,6 @@ docs/           bosquejo de los módulos y figuras de este README
 
 ## Datos y licencias
 
-El conjunto DNase proviene de Davidian y Giltinan (1995) y se distribuye con R (paquete `datasets`). Los detalles de fuente y licencia de cada conjunto, y la descripción de los datos simulados y alterados, están en [`data/README.md`](data/README.md).
+El código y los materiales del curso se distribuyen bajo la [licencia MIT](LICENSE).
+
+Los conjuntos de datos tienen su propia procedencia y licencia. DNase proviene de Davidian y Giltinan (1995) y se distribuye con R (paquete `datasets`). Los detalles de cada conjunto, y la descripción de los datos simulados y alterados, están en [`data/README.md`](data/README.md).
