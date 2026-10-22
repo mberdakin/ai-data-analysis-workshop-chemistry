@@ -1,0 +1,3 @@
+# Figuras que generan los notebooks al ejecutarse
+modulo-*/*.tif
+modulo-*/*.png
