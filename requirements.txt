@@ -1,5 +1,5 @@
 # Versiones con las que se ejecutaron y verificaron los notebooks (Python 3.12).
-# En Colab no hace falta instalar nada: todas vienen preinstaladas (las versiones pueden diferir).
+# Instalación: pip install -r requirements.txt
 
 # Análisis
 numpy==2.5.4

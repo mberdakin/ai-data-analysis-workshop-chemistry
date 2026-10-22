@@ -18,7 +18,7 @@ Clase de 3 horas. Los estudiantes no escriben código desde cero: a partir de co
 | Minutos | Bloque | Consignas | Producto |
 |---|---|---|---|
 | 0–25 | Teoría | — | La pregunta que se responde en el bloque 4 |
-| 25–50 | 1. Entorno: Drive, GitHub y Colab | 1.1 a 1.4 | Los datos cargados de tres formas y un error depurado |
+| 25–50 | 1. Entorno: VS Code, OpenCode y carga de datos | 1.1 a 1.3 | Los datos cargados de dos formas y un error depurado |
 | 50–75 | 2. Estadística descriptiva | 2.1 a 2.4 | Tabla resumen y datos depurados de lecturas anómalas |
 | 75–100 | 3. Visualización | 3.1 a 3.3 | Una figura con las normas de una revista |
 | 100–110 | Descanso | | |
@@ -32,8 +32,8 @@ Clase de 3 horas. Los estudiantes no escriben código desde cero: a partir de co
 
 **Antes de la clase**
 
-- [ ] Comprobar que el asistente de IA funcione en las cuentas de los estudiantes.
-- [ ] Cambiar en la configuración del notebook las rutas `URL_GITHUB` y `RUTA_ANOMALIAS` por las del repositorio publicado (hoy apuntan a Rdatasets y a una ruta local).
+- [ ] Comprobar que cada estudiante tenga VS Code, OpenCode funcionando y el entorno de Python con `requirements.txt` instalado.
+- [ ] Comprobar que la carpeta del curso incluya `data/` (el notebook lee los CSV desde `../data/`) y que haya conexión a internet para la consigna 1.1.
 - [ ] Si se editó el resuelto, regenerar la guía y ejecutar las dos versiones:
   ```bash
   python herramientas/crear_guia.py modulo-7/resuelto.ipynb modulo-7/guia.ipynb
@@ -44,7 +44,7 @@ Clase de 3 horas. Los estudiantes no escriben código desde cero: a partir de co
 
 **Durante la clase**
 
-- La celda de la consigna 1.4 falla a propósito. Si alguien usa *Ejecutar todas*, la ejecución se detiene ahí: es lo esperado.
+- La celda de la consigna 1.3 falla a propósito. Si alguien usa *Ejecutar todas*, la ejecución se detiene ahí: es lo esperado.
 - En la consigna 2.2, el boxplot marca también 6 lecturas reales de las corridas 2 y 3. No son errores: es el punto de la actividad.
 - En la consigna 3.2, insistir en verificar contra la guía oficial de la revista y revisar el archivo guardado, no la vista en pantalla.
 - La curva de sobreajuste depende de la semilla: con la configuración del notebook, la forma en U clara aparece en unas 78 de cada 100 semillas. La semilla fija (32) muestra un perfil limpio.

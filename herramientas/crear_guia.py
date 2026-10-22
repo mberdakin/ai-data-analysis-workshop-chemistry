@@ -1,7 +1,7 @@
 """Genera la guía para estudiantes a partir del notebook resuelto.
 
 La fuente única de cada módulo es resuelto.ipynb. Sus celdas pueden llevar
-etiquetas (en Colab o Jupyter: Ver → Etiquetas de celda) que indican qué hacer
+etiquetas (en VS Code, con la extensión Jupyter Cell Tags; en Jupyter, Ver → Etiquetas de celda) que indican qué hacer
 con ellas en la guía:
 
   solo-docente    se elimina (prompts de referencia, notas para docentes)
@@ -38,7 +38,7 @@ def celda_codigo_vacia():
 
 
 def celda_tu_interpretacion():
-    return nbformat.v4.new_markdown_cell("#### Depende del dataset\n\n**Tu interpretación:**\n\n*...*")
+    return nbformat.v4.new_markdown_cell("#### Tu interpretación\n\n*...*")
 
 
 def crear_guia(ruta_resuelto, ruta_guia):

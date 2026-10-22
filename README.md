@@ -19,7 +19,7 @@ Cada módulo tiene dos notebooks: `guia.ipynb`, para estudiantes, con consignas,
 
 Toda la clase usa datos reales de **calibración de un ensayo ELISA** (conjunto DNase: 11 corridas, 8 concentraciones patrón, lecturas por duplicado):
 
-- **Entorno y depuración:** cargar datos desde GitHub, desde la web y desde Drive; leer un error real y corregirlo con el asistente.
+- **Entorno y depuración:** cargar los datos desde un archivo y desde una URL; leer un error real y corregirlo con el asistente.
 - **Datos sucios:** encontrar 4 lecturas alteradas a propósito. Un boxplot marca 10 lecturas sospechosas, y 6 de ellas son reales; comparar los duplicados de cada corrida aísla exactamente las 4 alteradas.
 - **Figura para publicar:** adaptar un gráfico a las normas de figuras de una revista (en el ejemplo, ACS) y verificar el archivo contra la guía oficial.
 - **Calibración y predicción inversa:** recta en el tramo lineal (pendiente 0,380, R² = 0,980) y concentración de una muestra desconocida.
@@ -35,14 +35,16 @@ El bloque de sobreajuste usa 18 puntos **simulados** a partir de la curva y el r
 
 ## Cómo ejecutar
 
-**En Google Colab** (sin instalar nada): en Colab, *Archivo → Abrir cuaderno → GitHub*, pegar la dirección de este repositorio y elegir el notebook.
+En el curso se trabaja con **VS Code** y el asistente **OpenCode**:
 
-**En una computadora propia** (Python 3.12):
+1. Clonar o descargar este repositorio y abrir la carpeta en VS Code.
+2. Crear un entorno de Python 3.12 e instalar las librerías:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Abrir `modulo-7/guia.ipynb`, elegir ese entorno como *kernel* y pedirle a OpenCode el código de cada consigna.
 
-```bash
-pip install -r requirements.txt
-jupyter notebook modulo-7/guia.ipynb
-```
+Sin VS Code, los notebooks también se pueden abrir con `jupyter notebook`.
 
 ## Estructura
 
