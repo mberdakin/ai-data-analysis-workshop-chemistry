@@ -36,6 +36,14 @@ Calibración de un ensayo ELISA para la proteína DNasa recombinante en suero de
 - **Rangos:** `conc` de 0,049 a 12,5; `density` de 0,011 a 2,003.
 - **Variabilidad:** el desvío de `density` entre corridas crece con la concentración, de 0,024 a 0,031 en los cinco patrones más bajos a 0,069 y 0,085 en los dos más altos.
 
+## `dnase_con_anomalias.csv` (módulo 7, bloque 2): datos alterados a propósito
+
+Copia de `dnase.csv` con **4 lecturas de densidad óptica alteradas** por el equipo docente, para la actividad de detección y depuración de lecturas anómalas. No son datos reales en esas 4 filas; el resto es idéntico al original.
+
+- **Cómo se genera:** `python herramientas/crear_datos_anomalos.py data/dnase.csv data/dnase_con_anomalias.csv`. El script contiene la clave de la actividad (qué lecturas se alteraron y cómo), así que no conviene mostrarlo a los estudiantes antes de la clase.
+- **Diseño:** cada anomalía reemplaza una de las dos lecturas duplicadas de una corrida y concentración; la otra queda intacta. Así, la diferencia entre duplicados permite encontrarlas: en los datos reales, esa diferencia es como máximo 0,15; en los pares alterados, va de 0,29 a 9,5.
+- **Tipos de anomalía:** un error de tipeo (lectura multiplicada por 10), un pocillo contaminado (lectura alta en una concentración baja), un pocillo sin reactivo (lectura cercana a cero en una concentración alta) y un desvío sutil (lectura alta, pero dentro del rango general de los datos).
+
 ## Datos simulados (módulo 7, bloque 4.3)
 
 El bloque de sobreajuste usa **18 puntos simulados**. No hay archivo: el notebook los genera al ejecutarse. Se simulan porque cada corrida real tiene solo 8 concentraciones distintas, demasiado pocas para mostrar el sobreajuste.
