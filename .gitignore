@@ -1,3 +1,8 @@
 # Figuras que generan los notebooks al ejecutarse
 modulo-*/*.tif
 modulo-*/*.png
+
+# Archivos de trabajo del autor que no se publican
+CLAUDE.md
+docs/bosquejo-modulos-7-8.md
+Bosquejo*.pdf

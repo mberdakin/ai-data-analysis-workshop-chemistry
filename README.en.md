@@ -54,7 +54,7 @@ Without VS Code, the notebooks can also be opened with `jupyter notebook`.
 modulo-7/       module 7 notebooks (student and instructor versions) and a README with the instructor checklist
 data/           datasets, with source, license and description in data/README.md
 herramientas/   scripts that generate the student notebook and the dataset with anomalies
-docs/           course outline and the figures in this README
+docs/           figures in this README
 ```
 
 ## Data and licenses

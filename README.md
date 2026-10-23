@@ -54,7 +54,7 @@ Sin VS Code, los notebooks también se pueden abrir con `jupyter notebook`.
 modulo-7/       notebooks del módulo 7 (guía y resuelto) y su README con el checklist docente
 data/           conjuntos de datos, con fuente, licencia y descripción en data/README.md
 herramientas/   scripts para generar la guía y los datos con anomalías
-docs/           bosquejo de los módulos y figuras de este README
+docs/           figuras de este README
 ```
 
 ## Datos y licencias
