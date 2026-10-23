@@ -32,7 +32,7 @@ Clase de 3 horas. Los estudiantes no escriben código desde cero: a partir de co
 
 **Antes de la clase**
 
-- [ ] Comprobar que cada estudiante tenga VS Code, OpenCode funcionando y el entorno de Python con `requirements.txt` instalado.
+- [ ] Confirmar que el entorno quedó instalado en la clase anterior: VS Code, OpenCode y Python con `requirements.txt`.
 - [ ] Comprobar que la carpeta del curso incluya `data/` (el notebook lee los CSV desde `../data/`) y que haya conexión a internet para la consigna 1.1.
 - [ ] Si se editó el resuelto, regenerar la guía y ejecutar las dos versiones:
   ```bash

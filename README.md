@@ -1,3 +1,5 @@
+**Español** · [English](README.en.md)
+
 # Taller de IA para análisis de datos en Ciencias Químicas
 
 Materiales de los módulos 7 y 8 del curso de posgrado **"Aplicaciones de herramientas de Inteligencia Artificial en Investigación Científica"** (Facultad de Ciencias Químicas, Universidad Nacional de Córdoba, ciclo 2026).
