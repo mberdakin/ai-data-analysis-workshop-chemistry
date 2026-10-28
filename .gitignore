@@ -6,3 +6,6 @@ modulo-*/*.png
 CLAUDE.md
 docs/bosquejo-modulos-7-8.md
 Bosquejo*.pdf
+
+# Datos que se descargan localmente (herramientas/descargar_bloodmnist.py)
+data/*.npz
