@@ -13,20 +13,19 @@ Clase de 3 horas. Los estudiantes no escriben código desde cero: a partir de co
 
 **DNase**: calibración de un ensayo ELISA para la DNasa recombinante en suero de rata (176 lecturas: 11 corridas × 8 concentraciones patrón × duplicado). Además, una copia con 4 lecturas alteradas a propósito para el bloque 2 y 18 puntos simulados para el bloque de sobreajuste. Fuente, licencia y detalles en [`../data/README.md`](../data/README.md).
 
-## Cronograma
+## Estructura de la clase
 
-| Minutos | Bloque | Consignas | Producto |
-|---|---|---|---|
-| 0–25 | Teoría | — | La pregunta que se responde en el bloque 4 |
-| 25–50 | 1. Entorno: VS Code, OpenCode y carga de datos | 1.1 a 1.3 | Los datos cargados de dos formas y un error depurado |
-| 50–75 | 2. Estadística descriptiva | 2.1 a 2.4 | Tabla resumen y datos depurados de lecturas anómalas |
-| 75–100 | 3. Visualización | 3.1 a 3.3 | Una figura con las normas de una revista |
-| 100–110 | Descanso | | |
-| 110–125 | 4.1 Recta de calibración | 4.1 y 4.2 | Recta y concentración de una muestra desconocida |
-| 125–140 | 4.2 Ajuste de curvas | 4.3 y 4.4 | Comparación de recta, polinomios y logística |
-| 140–160 | 4.3 Sobreajuste | 4.5 a 4.7 | Gráfico de error por grado del polinomio |
-| 160–170 | 4.4 Métricas | 4.8 y 4.9 | Tabla de R², RMSE y MAE |
-| 170–180 | Cierre | final | Modelo elegido y justificado |
+| Bloque | Consignas | Producto |
+|---|---|---|
+| Teoría | — | La pregunta que se responde en el bloque 4 |
+| 1. Entorno: VS Code, OpenCode y carga de datos | 1.1 a 1.3 | Los datos cargados de dos formas y un error depurado |
+| 2. Estadística descriptiva | 2.1 a 2.4 | Tabla resumen y datos depurados de lecturas anómalas |
+| 3. Visualización | 3.1 a 3.3 | Una figura con las normas de una revista |
+| Descanso | | |
+| 4.1 Recta de calibración | 4.1 | Recta de calibración con su pendiente, ordenada y R² |
+| 4.2 Ajuste de curvas | 4.2 y 4.3 | Comparación de recta, polinomios y logística |
+| 4.3 Sobreajuste | 4.4 a 4.6 | Gráfico de error por grado del polinomio |
+| 4.4 Métricas (opcional) | 4.7 y 4.8 | Tabla de R², RMSE y MAE |
 
 ## Checklist docente
 
@@ -51,4 +50,4 @@ Clase de 3 horas. Los estudiantes no escriben código desde cero: a partir de co
 
 **Si falta tiempo**
 
-- Se pueden omitir las consignas 4.8 y 4.9. Conviene igual discutir las preguntas de la sección 4.4 con la tabla de métricas del resuelto: en grado 10, el R² de entrenamiento es prácticamente 1 y el de prueba es muy negativo.
+- La sección 4.4 (consignas 4.7 y 4.8) es opcional. Si no se hace, conviene igual discutir las preguntas de la sección 4.4 con la tabla de métricas del resuelto: en grado 10, el R² de entrenamiento es prácticamente 1 y el de prueba es muy negativo.

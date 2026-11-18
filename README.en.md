@@ -24,7 +24,7 @@ The whole class uses real **ELISA calibration data** (the DNase dataset: 11 assa
 - **Environment and debugging:** load the data from a file and from a URL; read a real error message and fix it with the assistant.
 - **Dirty data:** find 4 readings altered on purpose. A boxplot flags 10 suspicious readings, 6 of which are genuine; comparing the duplicate readings within each run isolates exactly the 4 altered ones.
 - **Publication-ready figure:** adapt a plot to a journal's figure guidelines (ACS in the example) and check the saved file against the official guidelines.
-- **Calibration and inverse prediction:** a straight line over the linear range (slope 0.380, R² = 0.980) and the concentration of an unknown sample.
+- **Calibration:** a straight line over the linear range (slope 0.380, R² = 0.980), reading its slope, intercept and R².
 - **Curve fitting:** the four-parameter logistic, the standard model for immunoassays, lowers the RMSE from 0.206 (straight line) to 0.017. A third-degree polynomial reaches a similar RMSE with a physically meaningless shape.
 - **Overfitting:** the test error is lowest at degree 4 (RMSE 0.036) and explodes at degree 10 (RMSE 28), where the training R² is 1.000 and the test R² is −1932.
 

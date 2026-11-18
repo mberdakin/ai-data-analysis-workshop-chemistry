@@ -24,7 +24,7 @@ Toda la clase usa datos reales de **calibración de un ensayo ELISA** (conjunto 
 - **Entorno y depuración:** cargar los datos desde un archivo y desde una URL; leer un error real y corregirlo con el asistente.
 - **Datos sucios:** encontrar 4 lecturas alteradas a propósito. Un boxplot marca 10 lecturas sospechosas, y 6 de ellas son reales; comparar los duplicados de cada corrida aísla exactamente las 4 alteradas.
 - **Figura para publicar:** adaptar un gráfico a las normas de figuras de una revista (en el ejemplo, ACS) y verificar el archivo contra la guía oficial.
-- **Calibración y predicción inversa:** recta en el tramo lineal (pendiente 0,380, R² = 0,980) y concentración de una muestra desconocida.
+- **Calibración:** recta en el tramo lineal (pendiente 0,380, R² = 0,980) y lectura de su pendiente, ordenada y R².
 - **Ajuste de curvas:** la logística de cuatro parámetros, el modelo estándar de los inmunoensayos, reduce el RMSE de 0,206 (recta) a 0,017. Un polinomio de grado 3 logra un RMSE parecido con una forma sin sentido físico.
 - **Sobreajuste:** el error de prueba es mínimo en grado 4 (RMSE 0,036) y se dispara en grado 10 (RMSE 28), donde el R² de entrenamiento es 1,000 y el de prueba es −1932.
 
