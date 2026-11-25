@@ -8,6 +8,7 @@ Clase de 3 horas. Los estudiantes no escriben código desde cero: a partir de co
 |---|---|---|
 | `resuelto.ipynb` | docentes | Fuente única del módulo: consignas, prompts de referencia, código, salidas, interpretaciones y notas docentes. |
 | `guia.ipynb` | estudiantes | Se genera desde el resuelto con `herramientas/crear_guia.py`. **No editarla a mano.** |
+| [`teoria.pdf`](teoria.pdf) | docentes y estudiantes | Diapositivas de la teoría del comienzo de la clase. |
 
 ## Datos
 

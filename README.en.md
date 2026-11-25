@@ -13,9 +13,9 @@ PhD and master's students in Chemical Sciences **who do not code**. In each clas
 | Module | Topic | Status |
 |---|---|---|
 | [7](modulo-7/) | Python with AI assistance, descriptive statistics, visualization and regression: calibration, curve fitting, overfitting and metrics | First version |
-| 8 | Machine learning workflow: decision trees, random forests, K-Means, PCA and neural networks | In preparation |
+| [8](modulo-8/) | Machine learning with blood cell images: classifiers, overfitting, K-Means clustering and PCA | First version |
 
-Each module has two notebooks: `guia.ipynb`, for students, with tasks, hints and space to work; and `resuelto.ipynb`, for instructors, with solutions, reference prompts and interpretations. The student notebook is generated automatically from the instructor notebook.
+Each module has the theory slides (`teoria.pdf`, in Spanish) and two notebooks: `guia.ipynb`, for students, with tasks, hints and space to work; and `resuelto.ipynb`, for instructors, with solutions, reference prompts and interpretations. The student notebook is generated automatically from the instructor notebook.
 
 ## Module 7 at a glance
 
@@ -35,6 +35,21 @@ The whole class uses real **ELISA calibration data** (the DNase dataset: 11 assa
 
 The overfitting block uses 18 **simulated** points generated from the curve and noise of the real data, because each real run has only 8 distinct concentrations. This is stated in the notebook and in [`data/README.md`](data/README.md).
 
+## Module 8 at a glance
+
+The whole class uses **microscopy images of blood cells** (BloodMNIST: 28 × 28 color pixels, 8 cell types). Models are trained on a balanced subsample of 5000 images and evaluated on the 3421 official test images, using the macro F1 score:
+
+- **First classifier:** logistic regression reaches F1 = 1.000 on training and 0.704 on test. The confusion matrix shows that errors concentrate among large cells with bulky nuclei, which look very similar at this resolution.
+- **Trees and forests:** an unrestricted tree memorizes and scores 0.574; a 100-tree random forest rises to 0.794. The tree's test F1 stops improving from depth 8 onwards.
+- **Neural networks and the loss curve:** the validation loss is lowest at epoch 5 and rises afterwards, while the F1 barely changes: the network becomes overconfident. Without standardizing the pixels, the test F1 drops from 0.793 to 0.718.
+- **Clustering:** without using the labels, K-Means separates 4 clearly distinct cell types with an ARI of 0.71, and each cluster center can be drawn as an "average cell". With all 8 types the ARI drops to 0.34, and neither the elbow nor the silhouette method finds the number of types on its own.
+- **PCA (optional):** 37 components explain 80% of the variance of the 2352 columns of each image.
+
+<p align="center">
+  <img src="docs/figuras/modulo8-curva-perdida.png" alt="Training and validation loss by epoch, with the validation minimum at epoch 5" width="48%">
+  <img src="docs/figuras/modulo8-centros-kmeans.png" alt="Centers of the four K-Means clusters drawn as cell images" width="48%">
+</p>
+
 ## How to run
 
 The course uses **VS Code** with the **OpenCode** assistant:
@@ -44,16 +59,21 @@ The course uses **VS Code** with the **OpenCode** assistant:
    ```bash
    pip install -r requirements.txt
    ```
-3. Open `modulo-7/guia.ipynb`, select that environment as the kernel and ask OpenCode for the code of each task.
+3. For module 8, download the images (35 MB, not included in the repository):
+   ```bash
+   python herramientas/descargar_bloodmnist.py data/bloodmnist.npz
+   ```
+4. Open the module's student notebook (`modulo-7/guia.ipynb` or `modulo-8/guia.ipynb`), select that environment as the kernel and ask OpenCode for the code of each task.
 
 Without VS Code, the notebooks can also be opened with `jupyter notebook`.
 
 ## Repository structure
 
 ```
-modulo-7/       module 7 notebooks (student and instructor versions) and a README with the instructor checklist
+modulo-7/       module 7 slides and notebooks (student and instructor versions), and a README with the instructor checklist
+modulo-8/       the same for module 8
 data/           datasets, with source, license and description in data/README.md
-herramientas/   scripts that generate the student notebook and the dataset with anomalies
+herramientas/   scripts that generate the student notebook and the dataset with anomalies, and download BloodMNIST
 docs/           figures in this README
 ```
 
@@ -61,4 +81,4 @@ docs/           figures in this README
 
 The code and course materials are released under the [MIT license](LICENSE).
 
-The datasets have their own provenance and licenses. DNase comes from Davidian and Giltinan (1995) and is distributed with R (`datasets` package). Details for each dataset, and the description of the simulated and altered data, are in [`data/README.md`](data/README.md) (in Spanish).
+The datasets have their own provenance and licenses. DNase comes from Davidian and Giltinan (1995) and is distributed with R (`datasets` package). BloodMNIST comes from MedMNIST v2 (Yang et al., 2023), built from the images of Acevedo et al. (2020), under a CC BY 4.0 license. Details for each dataset, and the description of the simulated and altered data, are in [`data/README.md`](data/README.md) (in Spanish).
