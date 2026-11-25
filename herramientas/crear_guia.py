@@ -6,10 +6,19 @@ con ellas en la guía:
 
   solo-docente    se elimina (prompts de referencia, notas para docentes)
   solucion        se reemplaza por un espacio para anotar el prompt y una celda vacía
-  interpretacion  se reemplaza por un espacio "Tu interpretación"
+  interpretacion  se reemplaza por un espacio "Tu interpretación"; si el resuelto lo
+                  pide (ver abajo), debajo se agregan las conclusiones del resuelto
+                  en un bloque plegado, para quien necesite verlas
 
 Las celdas sin etiqueta pasan igual, salvo los tiempos estimados de los títulos
-(por ejemplo "(25 min)"), que son para el docente y se quitan en la guía. Uso:
+(por ejemplo "(25 min)"), que son para el docente y se quitan en la guía.
+
+Para mostrar las conclusiones plegadas, el resuelto lleva en sus metadatos
+(Notebook → metadatos, o editando el JSON):
+
+  "guia": {"conclusiones_plegadas": true}
+
+Uso:
 
   python herramientas/crear_guia.py modulo-7/resuelto.ipynb modulo-7/guia.ipynb
 """
@@ -41,8 +50,23 @@ def celda_tu_interpretacion():
     return nbformat.v4.new_markdown_cell("#### Tu interpretación\n\n*...*")
 
 
+# Título de la celda de interpretación del resuelto, que no se repite dentro del bloque plegado
+PATRON_TITULO_INTERPRETACION = re.compile(r"^#+ Interpretación\s*\n", re.MULTILINE)
+
+
+def celda_conclusiones_plegadas(celda_interpretacion):
+    """Las conclusiones del resuelto, plegadas para que se abran solo si hace falta."""
+    conclusiones = PATRON_TITULO_INTERPRETACION.sub("", celda_interpretacion.source, count=1).strip()
+    return nbformat.v4.new_markdown_cell(
+        "<details>\n<summary><b>¿Querés comparar con las conclusiones?</b> (clic para verlas)</summary>\n\n"
+        "Escribí primero tu interpretación; después abrí este bloque para comparar.\n\n"
+        f"{conclusiones}\n\n</details>"
+    )
+
+
 def crear_guia(ruta_resuelto, ruta_guia):
     resuelto = nbformat.read(ruta_resuelto, as_version=4)
+    conclusiones_plegadas = resuelto.metadata.get("guia", {}).get("conclusiones_plegadas", False)
     celdas_guia = []
 
     for celda in resuelto.cells:
@@ -55,6 +79,8 @@ def crear_guia(ruta_resuelto, ruta_guia):
             continue
         if "interpretacion" in marcas:
             celdas_guia.append(celda_tu_interpretacion())
+            if conclusiones_plegadas:
+                celdas_guia.append(celda_conclusiones_plegadas(celda))
             continue
 
         # Celda sin etiqueta: se copia sin salidas, para que la guía empiece limpia
@@ -72,7 +98,9 @@ def crear_guia(ruta_resuelto, ruta_guia):
         sys.exit(f"No se encontró '{TEXTO_RESUELTO}' en la primera celda del resuelto.")
     portada.source = portada.source.replace(TEXTO_RESUELTO, TEXTO_GUIA)
 
-    guia = nbformat.v4.new_notebook(metadata=resuelto.metadata)
+    metadatos = dict(resuelto.metadata)
+    metadatos.pop("guia", None)  # la opción es para generar la guía, no hace falta dentro de ella
+    guia = nbformat.v4.new_notebook(metadata=metadatos)
     guia.cells = celdas_guia
     nbformat.write(guia, ruta_guia)
     print(f"Guía escrita en {ruta_guia}: {len(celdas_guia)} celdas (resuelto: {len(resuelto.cells)})")
